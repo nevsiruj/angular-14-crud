@@ -1,0 +1,83 @@
+<section>
+  <div class="row d-flex justify-content-center">
+    <div class="col-md-4">
+      <div class="card shadow">
+        <div class="card-header border-bottom">
+          <h4>{{ title }}</h4>
+        </div>
+        <div class="card-body">
+          <form [formGroup]="formadd" (ngSubmit)="onSubmit()">
+            <div class="row">
+              <div class="form-group mb-3">
+                <label class="mb-2">nombre</label>
+                <input
+                  type="text"
+                  formControlName="nombre"
+                  class="form-control"
+                  [ngClass]="{
+                    'is-invalid': submitted && f['nombre'].errors
+                  }"
+                />
+                <div
+                  *ngIf="submitted && f['nombre'].errors"
+                  class="invalid-feedback"
+                >
+                  <div *ngIf="f['nombre'].errors">nombre is required</div>
+                </div>
+              </div>
+              <div class="form-group mb-3">
+                <label class="mb-2">apellido</label>
+                <input
+                  type="text"
+                  formControlName="apellido"
+                  class="form-control"
+                  [ngClass]="{
+                    'is-invalid': submitted && f['apellido'].errors
+                  }"
+                />
+                <div
+                  *ngIf="submitted && f['apellido'].errors"
+                  class="invalid-feedback"
+                >
+                  <div *ngIf="f['apellido'].errors">apellido is required</div>
+                </div>
+              </div>
+              <div class="form-group mb-3">
+                <label class="mb-2">direccion</label>
+                <input
+                  type="text"
+                  formControlName="direccion"
+                  class="form-control"
+                  [ngClass]="{
+                    'is-invalid': submitted && f['direccion'].errors
+                  }"
+                />
+                <div
+                  *ngIf="submitted && f['direccion'].errors"
+                  class="invalid-feedback"
+                >
+                  <div *ngIf="f['direccion'].errors">apellido is required</div>
+                </div>
+              </div>
+            </div>
+
+            <button
+              [disabled]="loading"
+              type="submit"
+              class="btn btn-success me-3"
+            >
+              {{ btnText }}
+            </button>
+            <button
+              type="button"
+              class="btn btn-outline-danger"
+              (click)="btnCancel()"
+            >
+              Cancel
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
